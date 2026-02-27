@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>    
+</head>
+<body>
+    <nav>
+    <a href="index.html">Home</a> |
+    <a href="profile.html">Profile</a> |
+    <a href="schedule.html">Schedule</a> |
+    <a href="registration.html">Registration</a>|
+      <a href="navigation.html">Navigation</a>
+</nav>
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="reg">Registration Number:</label>
+        <input type="text" id="reg" name="registration" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            <option value="">-- Select Course --</option>
+            <option>Web Technologies</option>
+            <option>Operating Systems</option>
+            <option>Artificial Intelligence</option>
+            <option>Data Science</option>
+        </select>
+        <label>Semester:</label>
+        <div class="radio-group">
+            <input type="radio" name="semester" value="1"> 1st Semester<br>
+            <input type="radio" name="semester" value="2"> 2nd Semester<br>
+            <input type="radio" name="semester" value="3"> 3rd Semester<br>
+            <input type="radio" name="semester" value="4"> 4th Semester
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" required>
+            I agree to the Terms and Conditions
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
