@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="profile.html">Profile</a> |
+    <a href="schedule.html">Schedule</a> |
+    <a href="registration.html">Registration</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+  <hr>
+</header>
+<h1>Contact Me</h1>
+<form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+  <p>
+    <label for="name">Name:</label><br>
+    <input id="name" name="name" type="text" required minlength="3" autocomplete="name">
+  </p>
+  <p>
+    <label for="email">Email:</label><br>
+    <input id="email" name="email" type="email" required autocomplete="email">
+  </p>
+  <p>
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+  </p>
+  <button type="submit">Send Message</button>
+</form>
+<p id="status" aria-live="polite"></p>
+<script>
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("status");
+
+  function showStatus(msg) {
+    statusEl.textContent = msg;
+  }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    if (name.length < 3) return showStatus("Error: Name must be at least 3 characters.");
+    if (!email.includes("@") || !email.includes(".")) return showStatus("Error: Enter a valid email.");
+    if (message.length < 10) return showStatus("Error: Message must be at least 10 characters.");
+    showStatus("Sending...");
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      if (response.ok) {
+        form.reset();
+        showStatus("Success: Your message has been sent!");
+      } else {
+        showStatus("Error: Failed to send. Please try again.");
+      }
+    } catch (err) {
+      showStatus("Error: Network problem. Please try again.");
+    }
+  });
+</script>
+</body>
+</html>
