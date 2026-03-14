@@ -1,0 +1,25 @@
+body{
+font-family:Arial;
+text-align:center;
+}
+.card{
+width:250px;
+border:1px solid #ddd;
+padding:15px;
+margin:20px;
+display:inline-block;
+box-shadow:3px 3px 10px gray;
+transition:0.3s;
+}
+.card img{
+width:100%;
+}
+.card:hover{
+transform:translateY(-10px);
+}
+button{
+background:blue;
+color:white;
+border:none;
+padding:8px 15px;
+}

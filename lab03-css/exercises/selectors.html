@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 1 - CSS Selectors Practice</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="task-header">
+      <h1>Task 1: CSS Selectors Practice</h1>
+      <p>This page demonstrates selectors, combinators, pseudo-classes and pseudo-elements.</p>
+    </header>
+
+    <section class="box">
+      <h2>1. Basic Selectors</h2>
+      <p>This paragraph is styled using an element selector.</p>
+      <p class="highlight">This paragraph uses a class selector.</p>
+      <p id="special-text">This paragraph uses an ID selector.</p>
+      <div>This div is styled by an element selector.</div>
+      <h3 class="note">This heading uses a class selector too.</h3>
+    </section>
+
+    <section class="box">
+      <h2>2. Attribute Selectors</h2>
+      <input type="text" placeholder="Enter your name" />
+      <input type="email" placeholder="Enter your email" />
+      <a href="https://www.uetpeshawar.edu.pk/" target="Uet peshawar">External Link</a>
+      <a href="about.html" title="about-page">About Page</a>
+    </section>
+
+    <section class="box combinator-demo">
+      <h2>3. Combinators</h2>
+
+      <div class="parent">
+        <p>Descendant paragraph inside parent div.</p>
+        <div>
+          <p>Another descendant paragraph inside nested div.</p>
+        </div>
+        <span>Direct child span of parent div.</span>
+      </div>
+
+      <h3>Adjacent sibling heading</h3>
+      <p>This paragraph is styled using adjacent sibling combinator.</p>
+
+      <h4>General sibling heading</h4>
+      <p>General sibling paragraph 1.</p>
+      <p>General sibling paragraph 2.</p>
+    </section>
+
+    <section class="box">
+      <h2>4. Pseudo-classes</h2>
+      <ul class="list-demo">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+      </ul>
+
+      <form class="form-demo">
+        <input type="text" placeholder="Focus on me" />
+        <label>
+          <input type="checkbox" checked />
+          I agree
+        </label>
+        <input type="text" placeholder="Disabled field" disabled />
+        <button type="button">Submit</button>
+      </form>
+
+      <p><a href="https://google.com" target="_blank">Hover this link</a></p>
+    </section>
+
+    <section class="box">
+      <h2>5. Pseudo-elements</h2>
+      <p class="first-letter-demo">
+        Cascading Style Sheets help make web pages beautiful and attractive.
+      </p>
+
+      <blockquote class="quote">
+        CSS gives full control over layout, colors, fonts and visual effects.
+      </blockquote>
+    </section>
+  </div>
+</body>
+</html>

@@ -4,7 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Form</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 15px;
+      background-color: #2c3e50;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      width: 350px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+    }
+
+    #status {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
@@ -15,25 +94,34 @@
     <a href="registration.html">Registration</a> |
     <a href="contact.html">Contact</a>
   </nav>
-  <hr>
 </header>
-<h1>Contact Me</h1>
-<form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-  <p>
-    <label for="name">Name:</label><br>
-    <input id="name" name="name" type="text" required minlength="3" autocomplete="name">
-  </p>
-  <p>
-    <label for="email">Email:</label><br>
-    <input id="email" name="email" type="email" required autocomplete="email">
-  </p>
-  <p>
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
-  </p>
-  <button type="submit">Send Message</button>
-</form>
-<p id="status" aria-live="polite"></p>
+
+<div class="container">
+  <div>
+    <h1>Contact Me</h1>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <p>
+        <label for="name">Name:</label><br>
+        <input id="name" name="name" type="text" required minlength="3">
+      </p>
+
+      <p>
+        <label for="email">Email:</label><br>
+        <input id="email" name="email" type="email" required>
+      </p>
+
+      <p>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+      </p>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p id="status" aria-live="polite"></p>
+  </div>
+</div>
+
 <script>
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("status");
@@ -41,15 +129,19 @@
   function showStatus(msg) {
     statusEl.textContent = msg;
   }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
+
     if (name.length < 3) return showStatus("Error: Name must be at least 3 characters.");
     if (!email.includes("@") || !email.includes(".")) return showStatus("Error: Enter a valid email.");
     if (message.length < 10) return showStatus("Error: Message must be at least 10 characters.");
+
     showStatus("Sending...");
+
     try {
       const response = await fetch(form.action, {
         method: "POST",
@@ -68,5 +160,6 @@
     }
   });
 </script>
+
 </body>
 </html>

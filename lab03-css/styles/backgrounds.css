@@ -1,0 +1,29 @@
+body{
+font-family: Arial, sans-serif;
+text-align:center;
+}
+div{
+height:200px;
+margin:20px;
+padding:40px;
+color:white;
+font-size:22px;
+}
+.color-bg{
+background-color:steelblue;
+}
+.image-bg{
+background-image:url("bg1.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;
+}
+.gradient-bg{
+background:linear-gradient(to right, blue, purple);
+}
+.fixed-bg{
+background-image:url("bg2.jpg");
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+}
